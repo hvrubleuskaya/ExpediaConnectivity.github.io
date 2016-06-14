@@ -106,26 +106,26 @@
     }
 
     #note {
-    position: absolute;
-    z-index: 101;
-    top: 0;
-    left: 0;
-    right: 0;
-    background: #fde073;
-    text-align: center;
-    line-height: 2.5;
-    overflow: hidden;
-    -webkit-box-shadow: 0 0 5px black;
-    -moz-box-shadow:    0 0 5px black;
-    box-shadow:         0 0 5px black;
+        position: absolute;
+        z-index: 101;
+        top: 0;
+        left: 0;
+        right: 0;
+        background: #fde073;
+        text-align: center;
+        line-height: 2.5;
+        overflow: hidden;
+        -webkit-box-shadow: 0 0 5px black;
+        -moz-box-shadow:    0 0 5px black;
+        box-shadow:         0 0 5px black;
 
-    @-webkit-keyframes slideDown {
-        0%, 100% { -webkit-transform: translateY(-50px); }
-        10%, 90% { -webkit-transform: translateY(0px); }
-    }
-    @-moz-keyframes slideDown {
-        0%, 100% { -moz-transform: translateY(-50px); }
-        10%, 90% { -moz-transform: translateY(0px); }
+        @-webkit-keyframes slideDown {
+            0%, 100% { -webkit-transform: translateY(-50px); }
+            10%, 90% { -webkit-transform: translateY(0px); }
+        }
+        @-moz-keyframes slideDown {
+            0%, 100% { -moz-transform: translateY(-50px); }
+            10%, 90% { -moz-transform: translateY(0px); }
     }
 
     .cssanimations.csstransforms #note {
@@ -141,7 +141,7 @@
 }
 </style>
 <div id="note">
-    This is our new website. It's better than the old one. <a id="close">[close]</a>
+    <span style="color:red">&#9432; &nbsp;&nbsp;</span> This is our new website. It's better than the old one. <a id="close">[close]</a>
 </div>
 <section class='hero hero-oceanview'>
     <div class='inner'>
@@ -175,11 +175,18 @@
 </section>
 <!-- should be moved to footer.html if we adopt this -->
 <script>
- close = document.getElementById("close");
- close.addEventListener('click', function() {
-   note = document.getElementById("note");
-   note.style.display = 'none';
- }, false);
+if (document.cookie.indexOf('NOTE_SHOWN=') >= 0) {
+    note = document.getElementById("note");
+    note.style.display = 'none';
+}
+</script>
+<script>
+    close = document.getElementById("close");
+    close.addEventListener('click', function() {
+    document.cookie = 'NOTE_SHOWN=true';
+    note = document.getElementById("note");
+    note.style.display = 'none';
+    }, false);
 </script>
 <div class="row full-width"><div class="small-12 small-centered medium-8 large-6 columns cards"><div class="category he-active_now he-animate he-delay_100 he-fade_in">Availability, Rates, Restrictions, Booking And Reservations</div><div class="card he-active_now he-animate he-delay_200 he-fade_in"><div class="card-logo"><span>E</span></div><div class="card-content"><a class="card-header" href="/apis/availability-rates-restrictions-booking-and-reservations/eqc-api/reference.html">EQC API</a><div class="links"><a class="card-section" href="/apis/availability-rates-restrictions-booking-and-reservations/eqc-api/reference.html">API Reference</a> | <a class="card-section" href="/apis/availability-rates-restrictions-booking-and-reservations/eqc-api/getting-connected.html">Getting Connected</a> | <a class="card-section" href="/apis/availability-rates-restrictions-booking-and-reservations/eqc-api/simulator-tool.html">Simulator Tool</a></div><div class="description"><p>The Expedia QuickConnect solution (EQC) is a simple interface that allows hotel properties to automatically communicate updates in rates and availability, retrieve/confirm bookings, as well as view product information and availability on Expedia systems.</p>
 </div></div></div><div class="card he-active_now he-animate he-delay_300 he-fade_in"><div class="card-logo"><span>B</span></div><div class="card-content"><a class="card-header" href="/apis/availability-rates-restrictions-booking-and-reservations/booking-notification-api/quick-start.html">Booking Notification API</a><div class="links"><a class="card-section" href="/apis/availability-rates-restrictions-booking-and-reservations/booking-notification-api/quick-start.html">Quick Start</a> | <a class="card-section" href="/apis/availability-rates-restrictions-booking-and-reservations/booking-notification-api/reference.html">API Definition</a> | <a class="card-section" href="/apis/availability-rates-restrictions-booking-and-reservations/booking-notification-api/guides.html">FAQ & Guides</a> | <a class="card-section" href="/apis/availability-rates-restrictions-booking-and-reservations/booking-notification-api/sample-messages.html">Sample Messages</a> | <a class="card-section" href="/apis/availability-rates-restrictions-booking-and-reservations/booking-notification-api/schemas.html">XML Schemas</a> | <a class="card-section" href="/apis/availability-rates-restrictions-booking-and-reservations/booking-notification-api/revision-history.html">Revision History</a></div><div class="description"><p>The Booking Notification API allows partners to receive new, modified or cancelled reservations in near real time, as Expedia customers make these bookings.</p>
