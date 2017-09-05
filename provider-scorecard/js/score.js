@@ -21,7 +21,7 @@ define(function() {
         "provider": {
             "name": "ExpediaProvider",
             "rank": 13,
-            "total": 297,
+            "total": 71,
             "score": 0.92780685
         },
         "version": {
