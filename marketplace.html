@@ -50,7 +50,7 @@ margin: 0.6rem 0.3rem;
 }
 
 .filter dl dt {
-font-size: 0.8rem;
+font-size: 0.85rem;
 margin-top: 1.4rem;
 }
 
@@ -176,10 +176,14 @@ box-shadow: none;
 .systems .survey {
 background: #ffffff;
 padding: 1rem;
-font-size: 0.8rem;
-font-weight: bold;
 border-radius: 3px;
 box-shadow: 0px 1px #dddddd;
+}
+
+.systems .survey p {
+font-size: 0.85rem;
+font-weight: bold;
+margin-bottom: 0.5rem;
 }
 
 .systems .survey .button {
@@ -188,13 +192,13 @@ border: 1px solid #999;
 border-radius: 3px;
 color: #616161;
 margin: 0.3rem;
+padding: 0.6rem 0.8rem;
 }
 
 .systems .survey .button:hover {
 border-color: #616161;
 color: #393939;
 }
-
 
 @media screen and (min-width:40em) and (max-width:63.9375em) {
 .systems.reveal {
@@ -260,54 +264,53 @@ width: 70%;
             </dl>
 
             <div class="survey">
-              <div>Did this page help you find a system?</div>
+              <p>Did this page help you find a system?</p>
               <div class="text-right"><a class="button">Yes</a> <a class="button">No</a></div>
             </div>
           </div>
-        </div>
-        <div class="small-12 medium-9 column">
-          <p>You have many options for connecting your property to the Expedia Global Marketplace.
-            Search our provider partners and find the system that best fits your needs.</p>
+          <div class="small-12 medium-9 column">
+            <p>You have many options for connecting your property to the Expedia Global Marketplace.
+              Search our provider partners and find the system that best fits your needs.</p>
 
-          <div class="sort-bar">
-            <div class="show-for-small-only clearfix">
-              <div class="float-right">
-                <select v-model="sortedBy">
-                  <option value="" disabled>Sort by:</option>
-                  <option value="score">Provider Score</option>
-                  <option value="system">System Name</option>
-                  <option value="company">Company Name</option>
-                </select>
+            <div class="sort-bar">
+              <div class="show-for-small-only clearfix">
+                <div class="float-right">
+                  <select v-model="sortedBy">
+                    <option value="" disabled>Sort by:</option>
+                    <option value="score">Provider Score</option>
+                    <option value="system">System Name</option>
+                    <option value="company">Company Name</option>
+                  </select>
+                </div>
+                <a data-toggle="off-canvas">Filters</a>
               </div>
-              <a data-toggle="off-canvas">Filters</a>
+              <div class="button-group hide-for-small-only">
+                <span class="title">Sort by:</span>
+                <a class="button" v-on:click="sortedBy = 'score'" v-bind:class="{active: sortedBy == 'score'}">Provider Score</a>
+                <a class="button" v-on:click="sortedBy = 'system'" v-bind:class="{active: sortedBy == 'system'}">System Name</a>
+                <a class="button" v-on:click="sortedBy = 'company'" v-bind:class="{active: sortedBy == 'company'}">Company Name</a>
+              </div>
             </div>
-            <div class="button-group hide-for-small-only">
-              <span class="title">Sort by:</span>
-              <a class="button" v-on:click="sortedBy = 'score'" v-bind:class="{active: sortedBy == 'score'}">Provider Score</a>
-              <a class="button" v-on:click="sortedBy = 'system'" v-bind:class="{active: sortedBy == 'system'}">System Name</a>
-              <a class="button" v-on:click="sortedBy = 'company'" v-bind:class="{active: sortedBy == 'company'}">Company Name</a>
+
+            <div class="clearfix">
+              <p class="help-text float-right">See how we score our providers</p>
             </div>
-          </div>
 
-          <div class="clearfix">
-            <p class="help-text float-right">See how we score our providers</p>
-          </div>
-
-          <div class="provider-list">
-            <ul class="vertical menu" data-accordion-menu>
-              <li v-for="p in filteredProviders">
-                <a v-bind:class="[p.type]" v-on:click="show(p)">
-                  <span class="system-type"><span class="label">{{p.type}}</span> &gt;</span>
-                  <div class="system-name">{{p.system}}</div>
-                  <div class="company-name">by {{p.company}}</div>
-                </a>
-              </li>
-            </ul>
+            <div class="provider-list">
+              <ul class="vertical menu" data-accordion-menu>
+                <li v-for="p in filteredProviders">
+                  <a v-bind:class="[p.type]" v-on:click="show(p)">
+                    <span class="system-type"><span class="label">{{p.type}}</span> &gt;</span>
+                    <div class="system-name">{{p.system}}</div>
+                    <div class="company-name">by {{p.company}}</div>
+                  </a>
+                </li>
+              </ul>
+            </div>
           </div>
         </div>
       </div>
     </div>
-
   </div>
 </div>
 
@@ -363,7 +366,6 @@ width: 70%;
   </button>
 </div>
 
-</div>
 <script src="/js/vue.min.js"></script>
 <script type="text/javascript">
 var allProviders = [
