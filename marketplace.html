@@ -225,89 +225,88 @@ width: 70%;
       <div class="filter"></div>
     </div>
 
-    <div class="off-canvas-content small-12" id="systems-list" data-off-canvas-content>
-      <div class="row column">
-        <div class="hide-for-small-only medium-3 column">
-          <div class="filter" id="systems-list-filter">
-            <h5>Filter by:</h5>
-            <dl>
-              <dt>Country</dt>
-              <dd>
-                <label><input type="text" placeholder="Enter your country" v-model="country"/></label>
-                <p class="help-text">Display providers offering service in a specific location</p>
-              </dd>
+    <div class="off-canvas-content row column" id="systems-list" data-off-canvas-content>
+      <div class="hide-for-small-only medium-3 column">
+        <div class="filter">
+          <h5>Filter by:</h5>
+          <dl>
+            <dt>Country</dt>
+            <dd>
+              <label><input type="text" placeholder="Enter your country" v-model="country"/></label>
+              <p class="help-text">Display providers offering service in a specific location</p>
+            </dd>
 
-              <dt>System Type</dt>
-              <dd>
-                <div><label class="CM"><input type="checkbox" v-model="typeCM"><span class="label">CM</span> Channel Manager</label></div>
-                <div><label class="PMS"><input type="checkbox" v-model="typePMS"><span class="label">PMS</span> Property Management System</label></div>
-                <div><label class="CRS"><input type="checkbox" v-model="typeCRS"><span class="label">CRS</span> Central Reservations Systems</label></div>
-              </dd>
+            <dt>System Type</dt>
+            <dd>
+              <div><label class="CM"><input type="checkbox" v-model="typeCM"><span class="label">CM</span> Channel Manager</label></div>
+              <div><label class="PMS"><input type="checkbox" v-model="typePMS"><span class="label">PMS</span> Property Management System</label></div>
+              <div><label class="CRS"><input type="checkbox" v-model="typeCRS"><span class="label">CRS</span> Central Reservations Systems</label></div>
+            </dd>
 
-              <dt>Language Supported</dt>
-              <dd>
-                <div><label><input type="text" placeholder="Enter language" v-model="language"/></label></div>
-              </dd>
+            <dt>Language Supported</dt>
+            <dd>
+              <div><label><input type="text" placeholder="Enter language" v-model="language"/></label></div>
+            </dd>
 
-              <dt>System Support</dt>
-              <dd>
-                <div><label><input type="checkbox" v-model="liveSupport"> Provide live support</label></div>
-              </dd>
+            <dt>System Support</dt>
+            <dd>
+              <div><label><input type="checkbox" v-model="liveSupport"> Provide live support</label></div>
+            </dd>
 
-              <dt>Product Updates</dt>
-              <dd>
-                <p class="help-text">Who can map property, rooms types and rate plans</p>
-                <div><label><input name="product-updates" value="provider" type="radio" v-model="productUpdate"> Provider</label></div>
-                <div><label><input name="product-updates" value="hotel" type="radio" v-model="productUpdate"> Hotel/Property</label></div>
-                <div><label><input name="product-updates" value="both" type="radio" v-model="productUpdate"> Both</label></div>
-              </dd>
-            </dl>
+            <dt>Product Updates</dt>
+            <dd>
+              <p class="help-text">Who can map property, rooms types and rate plans</p>
+              <div><label><input name="product-updates" value="provider" type="radio" v-model="productUpdate"> Provider</label></div>
+              <div><label><input name="product-updates" value="hotel" type="radio" v-model="productUpdate"> Hotel/Property</label></div>
+              <div><label><input name="product-updates" value="both" type="radio" v-model="productUpdate"> Both</label></div>
+            </dd>
+          </dl>
 
-            <div class="survey">
-              <p>Did this page help you find a system?</p>
-              <div class="text-right"><a class="button">Yes</a> <a class="button">No</a></div>
-            </div>
+          <div class="fill"></div>
+          <div class="survey">
+            <p>Did this page help you find a system?</p>
+            <div class="text-right"><a class="button">Yes</a> <a class="button">No</a></div>
           </div>
         </div>
-        <div class="small-12 medium-9 column">
-          <p>You have many options for connecting your property to the Expedia Global Marketplace.
-            Search our provider partners and find the system that best fits your needs.</p>
+      </div>
+      <div class="small-12 medium-9 column list">
+        <p>You have many options for connecting your property to the Expedia Global Marketplace.
+          Search our provider partners and find the system that best fits your needs.</p>
 
-          <div class="sort-bar">
-            <div class="show-for-small-only clearfix">
-              <div class="float-right">
-                <select v-model="sortedBy">
-                  <option value="" disabled>Sort by:</option>
-                  <option value="score">Provider Score</option>
-                  <option value="system">System Name</option>
-                  <option value="company">Company Name</option>
-                </select>
-              </div>
-              <a data-toggle="off-canvas">Filters</a>
+        <div class="sort-bar">
+          <div class="show-for-small-only clearfix">
+            <div class="float-right">
+              <select v-model="sortedBy">
+                <option value="" disabled>Sort by:</option>
+                <option value="score">Provider Score</option>
+                <option value="system">System Name</option>
+                <option value="company">Company Name</option>
+              </select>
             </div>
-            <div class="button-group hide-for-small-only">
-              <span class="title">Sort by:</span>
-              <a class="button" v-on:click="sortedBy = 'score'" v-bind:class="{active: sortedBy == 'score'}">Provider Score</a>
-              <a class="button" v-on:click="sortedBy = 'system'" v-bind:class="{active: sortedBy == 'system'}">System Name</a>
-              <a class="button" v-on:click="sortedBy = 'company'" v-bind:class="{active: sortedBy == 'company'}">Company Name</a>
-            </div>
+            <a data-toggle="off-canvas">Filters</a>
           </div>
+          <div class="button-group hide-for-small-only">
+            <span class="title">Sort by:</span>
+            <a class="button" v-on:click="sortedBy = 'score'" v-bind:class="{active: sortedBy == 'score'}">Provider Score</a>
+            <a class="button" v-on:click="sortedBy = 'system'" v-bind:class="{active: sortedBy == 'system'}">System Name</a>
+            <a class="button" v-on:click="sortedBy = 'company'" v-bind:class="{active: sortedBy == 'company'}">Company Name</a>
+          </div>
+        </div>
 
-          <div class="clearfix">
-            <p class="help-text float-right">See how we score our providers</p>
-          </div>
+        <div class="clearfix">
+          <p class="help-text float-right">See how we score our providers</p>
+        </div>
 
-          <div class="provider-list">
-            <ul class="vertical menu" data-accordion-menu>
-              <li v-for="p in filteredProviders">
-                <a v-bind:class="[p.type]" v-on:click="show(p)">
-                  <span class="system-type"><span class="label">{{p.type}}</span> &gt;</span>
-                  <div class="system-name">{{p.system}}</div>
-                  <div class="company-name">by {{p.company}}</div>
-                </a>
-              </li>
-            </ul>
-          </div>
+        <div class="provider-list">
+          <ul class="vertical menu" data-accordion-menu>
+            <li v-for="p in filteredProviders">
+              <a v-bind:class="[p.type]" v-on:click="show(p)">
+                <span class="system-type"><span class="label">{{p.type}}</span> &gt;</span>
+                <div class="system-name">{{p.system}}</div>
+                <div class="company-name">by {{p.company}}</div>
+              </a>
+            </li>
+          </ul>
         </div>
       </div>
     </div>
@@ -631,6 +630,23 @@ $(function() {
             main.children().detach().appendTo(side);
           }
         }
+      },
+      onScroll: function() {
+        // Can be in off-canvas
+        var fill = $('.systems .filter .fill');
+        var h = fill.height();
+        var d = 0;
+        if (fill.parents('#off-canvas').length == 0) {
+          var ref = $(this.$el).find('.list');
+          d = ref.height() - (fill.parent().height() - h);
+          if (d < 1) {
+            d = 0;
+          }
+        }
+        if (Math.abs(d - h) > 1) {
+          console.log(d, h);
+          fill.height(d);
+        }
       }
     },
     computed: {
@@ -654,10 +670,18 @@ $(function() {
     mounted: function() {
       $(this.$el).foundation();
       this.onResize();
+      this.onScroll();
     }
   });
   app.setProviders(allProviders);
-  $(window).resize(function() { app.onResize(); });
+  $(window).resize(function() {
+    clearTimeout(app.resizeTimer);
+    app.resizeTimer = setTimeout(function() { app.onResize(); }, 100);
+  });
+  $(window).scroll(function() {
+    clearTimeout(app.scrollTimer);
+    app.scrollTimer = setTimeout(function() { app.onScroll(); }, 100);
+  });
 });
 </script>
 </div><footer class="row full-width" id="site-footer"><div class="large-8 large-centered columns"><div class="links text-center"><a class="link-item" href="https://www.expediapartnercentral.com" target="_blank">Expedia PartnerCentral</a> | <a class="link-item" href="https://expediagso.secure.force.com/kb/pkb_Home?l=en_US" target="_blank">Knowledge Base</a> | <a class="link-item" href="/terms">Terms and Conditions</a> | <a class="link-item" href="/privacy">Privacy Policy</a> | <a class="link-item" href="/license">License Agreement</a></div><div class="show-for-large"><div class="footer-logo">&nbsp;</div></div><div id="footer-copyright">&copy; 2017 Expedia, Inc. All rights reserved. Confidential and proprietary.</div></div></footer><input type="hidden" id="eventTrackingPageName" value="Marketplace"/></body></html>
