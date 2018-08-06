@@ -2071,16 +2071,32 @@ GET <a href="https://services.expediapartnercentral.com/properties/12933870/room
     }
   ],
   &quot;serviceFeesPerStay&quot;: [
-      {
-    &quot;isTaxable&quot;: false,
-    &quot;percent&quot;: 0.2
-     },
-     {
-    &quot;isTaxable&quot;: true,
-    &quot;amountPerNight&quot;: 5.0,
-    &quot;amountPerStay&quot;: 20.0,
-     }
-    ],
+   {
+      &quot;isTaxable&quot;: false,
+      &quot;percent&quot;: 0.2
+      &quot;amountPerStay&quot;: 10
+   },
+   {
+      &quot;isTaxable&quot;: true,
+      &quot;amountPerNight&quot;: 12
+   }
+  ],
+  &quot;serviceFeesPerPerson&quot;: [
+   {
+     &quot;dateStart&quot;: &quot;2018-09-20&quot;,
+     &quot;dateEnd&quot;: &quot;2079-06-06&quot;,
+     &quot;ageCategory&quot;: &quot;Adult&quot;,
+     &quot;isTaxable&quot;: true,
+     &quot;amountPerStay&quot;: 20
+   },
+   {
+     &quot;dateStart&quot;: &quot;2018-07-27&quot;,
+     &quot;dateEnd&quot;: &quot;2018-09-20&quot;,
+     &quot;ageCategory&quot;: &quot;Adult&quot;,
+     &quot;isTaxable&quot;: true,
+     &quot;amountPerNight&quot;: 12
+   }
+   ],
   &quot;valueAddInclusions&quot;: [
     &quot;Free Parking&quot;, &quot;Free Breakfast&quot;, &quot;Free Internet&quot;
   ],
@@ -2314,16 +2330,32 @@ GET <a href="https://services.expediapartnercentral.com/properties/12933870/room
       &quot;amount&quot;: 5
     }
   ],
-   &quot;serviceFeesPerStay&quot;: [
-     {
-    &quot;isTaxable&quot;: false,
-    &quot;percent&quot;: 0.2
-     },
-     {
-    &quot;isTaxable&quot;: true,
-    &quot;amountPerNight&quot;: 5.0,
-    &quot;amountPerStay&quot;: 20.0,
-     }
+    &quot;serviceFeesPerStay&quot;: [
+   {
+      &quot;isTaxable&quot;: false,
+      &quot;percent&quot;: 0.2
+   },
+   {
+      &quot;isTaxable&quot;: true,
+      &quot;amountPerNight&quot;: 12
+   }
+  ],
+  &quot;serviceFeesPerPerson&quot;: [
+   {
+     &quot;dateStart&quot;: &quot;2018-09-20&quot;,
+     &quot;dateEnd&quot;: &quot;2079-06-06&quot;,
+     &quot;ageCategory&quot;: &quot;Adult&quot;,
+     &quot;isTaxable&quot;: true,
+     &quot;amountPerStay&quot;: 20
+   },
+   {
+     &quot;dateStart&quot;: &quot;2018-07-27&quot;,
+     &quot;dateEnd&quot;: &quot;2018-09-20&quot;,
+     &quot;ageCategory&quot;: &quot;Adult&quot;,
+     &quot;isTaxable&quot;: true,
+     &quot;amountPerNight&quot;: 12
+   }
+   ],
   &quot;valueAddInclusions&quot;: [
     &quot;Free Parking&quot;, &quot;Free Breakfast&quot;, &quot;Free Internet&quot;
   ],
@@ -2628,8 +2660,13 @@ GET <a href="https://services.expediapartnercentral.com/properties/12933870/room
 </tr>
 <tr>
 <td>serviceFeesPerStay</td>
-<td>Array<a href="#/definitions/serviceFeesPerStay">[serviceFeesPerStay]</a>]</td>
-<td>Array of Per Stay Service Fees that are collected at the time of Booking. </td>
+<td>Array<a href="#/definitions/serviceFeesPerStay">serviceFeesPerStay</a></td>
+<td>Array of Per Stay Service Fees that are collected at the time of Booking. This is optional.</td>
+</tr>
+<tr>
+<td>serviceFeesPerPerson</td>
+<td>Array<a href="#/definitions/serviceFeesPerPerson">serviceFeesPerPerson</a></td>
+<td>Array of Per Person Service Fees that are collected at the time of Booking. This is optional. </td>
 </tr>
 <tr>
 <td>valueAddInclusions</td>
@@ -2726,7 +2763,8 @@ GET <a href="https://services.expediapartnercentral.com/properties/12933870/room
 </tr>
 </tbody>
 </table>
-</div><h4 id="servicefeesperstay" data-magellan-destination="servicefeesperstay">serviceFeesPerStay</h4>
+</div><p><a name="/definitions/serviceFeesPerStayDTO"></a></p>
+<h4 id="servicefeesperstay" data-magellan-destination="servicefeesperstay">serviceFeesPerStay</h4>
 <div><table>
 <thead>
 <tr>
@@ -2753,13 +2791,55 @@ GET <a href="https://services.expediapartnercentral.com/properties/12933870/room
 </tr>
 <tr>
 <td>percent</td>
-<td>number</td>
+<td>Number</td>
 <td>Percentage value (of the base rate). Values should be between 0 and 1, will return upto 4 decimal points</td>
 </tr>
 </tbody>
 </table>
-</div><p><a name="/definitions/CancelPolicyDTO"></a></p>
-<h4 id="cancelpolicy" data-magellan-destination="cancelpolicy">CancelPolicy</h4>
+</div><p><a name="/definitions/serviceFeesPerPersonDTO"></a></p>
+<h4 id="servicefeesperperson" data-magellan-destination="servicefeesperperson">serviceFeesPerPerson</h4>
+<div><table>
+<thead>
+<tr>
+<th>Property Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>dateStart</td>
+<td>date</td>
+<td>Date at which this amount started being applicable, can be in the past</td>
+</tr>
+<tr>
+<td>dateEnd</td>
+<td>date</td>
+<td>Date at which this amount will not be effective anymore. If no end date defined, will be returned as 2079-06-06.</td>
+</tr>
+<tr>
+<td>ageCategory</td>
+<td>enum</td>
+<td>The age category for the additional guests. Possible values: Adult, ChildAgeA, ChildAgeB, ChildAgeC, ChildAgeD, Infant.</td>
+</tr>
+<tr>
+<td>isTaxable</td>
+<td>Boolean</td>
+<td>Indicates if the Per Person Fees loaded is to be taxed or not.</td>
+</tr>
+<tr>
+<td>amountPerNight</td>
+<td>Number</td>
+<td>Defines the amount charged per night. Maximum possible value is 12000000</td>
+</tr>
+<tr>
+<td>amountPerStay</td>
+<td>Number</td>
+<td>Defines the amount charged for the entire stay period. Maximum possible value is 12000000</td>
+</tr>
+</tbody>
+</table>
+</div><h4 id="cancelpolicy" data-magellan-destination="cancelpolicy">CancelPolicy</h4>
 <div><table>
 <thead>
 <tr>
