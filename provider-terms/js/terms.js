@@ -106,9 +106,4 @@ define(function () {
         });
         $("#download-btn").attr("href", dataUrl() + "/pdf");
     });
-
-    return {
-        init: function () { }
-    };
-
 });
