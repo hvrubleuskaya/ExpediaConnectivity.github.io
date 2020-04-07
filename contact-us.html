@@ -85,6 +85,19 @@ function googleTranslateElementInit() {
                 <br>
                 Please visit <a href="https://expediapartnersolutions.com/">Expedia Partner Solutions (EPS)</a> for more information.
         </div>
+        
+        <div id="travel-airline" class="hidden">
+                <h3>For Travel Affiliate Providers</h3>
+                <br>
+                Please visit <a href="https://expediapartnersolutions.com/">Expedia Partner Solutions (EPS)</a> for more information or please contact a href="mailto:transcon@expediagroup.com">transcon@expediagroup.com</a>
+        </div>
+        
+        <div id="travel-activities" class="hidden">
+                <h3>For Travel Affiliate Providers</h3>
+                <br>
+                Please visit <a href="https://expediapartnersolutions.com/">Expedia Partner Solutions (EPS)</a> for more information or please contact a href="mailto:LXAPI@expedia.com">LXAPI@expedia.com</a> 
+        </div>        
+        
     </div>
     <!-- When adding new fields, Remember to also change the send email logic in hotel-assignment-service -->
     <div id="contact-form" class="six columns hidden">
@@ -152,7 +165,7 @@ function googleTranslateElementInit() {
     function toggleGoButton() {
         var value = $('input[type=radio][name=partner-type]:checked').val();
 
-        if (value == "hotel" || value == "provider" || value == "affiliate") {
+        if (value == "hotel" || value == "provider" || value == "affiliate" || value == "airline" || value == "activities") {
             $('#contact-go').removeClass("hidden");
         } else {
             $('#contact-go').addClass("hidden");
@@ -179,9 +192,9 @@ function googleTranslateElementInit() {
         } else if (partnerType === "affiliate") {
             $("#travel-affiliate").removeClass("hidden")
         } else if (partnerType === "airline") {
-            //do something
+            $("#travel-airline").removeClass("hidden")
         } else if (partnerType === "activities") {
-            //do something
+            $("#travel-activities").removeClass("hidden")
         } else {
             $("#hotel-contact").removeClass("hidden") // left this here incase we add hotel option back
         }
