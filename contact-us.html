@@ -25,12 +25,17 @@ function googleTranslateElementInit() {
     </div>
 </section>
 <section class="row">
+    <p>Expedia Group is the world’s travel platform, with an extensive brand portfolio that includes some of the world’s leading online travel brands. Collectively, Expedia Group brands cover virtually every aspect of researching, planning, and booking travel, from choosing the best airplane seat, to reading personal travel reviews of hotels, to planning what to do in a destination once you arrive. The Expedia Group portfolio serves both leisure and business travellers with tastes and budgets ranging from modest to luxury.</p>
+ 
+Please select what best describes what you are looking for
     <div class="six columns text-left contactus-info">
         <div id="contact-router">
             <h5>Which best describes your organisation?</h5><br/>
-            <input type="radio" name="partner-type" id="partner-type-1" value="hotel"><label for="partner-type-1">Hotel/Property</label><br>
-            <input type="radio" name="partner-type" id="partner-type-2" value="affiliate"><label for="partner-type-2">Travel affiliate provider</label><br>
-            <input type="radio" name="partner-type" id="partner-type-3" value="provider"><label for="partner-type-3">Lodging connectivity provider e.g. Channel Manager that handles rates, availability, inventory or reservations on behalf of a property</label><br>
+             <input type="radio" name="partner-type" id="partner-type-3" value="provider"><label for="partner-type-3">Adoption of Expedia Group's lodging supply APIs</label><br>
+            <input type="radio" name="partner-type" id="partner-type-2" value="affiliate"><label for="partner-type-2">Integration with Expedia Group’s booking experience and access to supply</label><br>
+            <input type="radio" name="partner-type" id="partner-type-1" value="airline"><label for="partner-type-1">Integration of Airline on Expedia Group or Integration of Car Rental on Expedia Group</label><br>
+            <input type="radio" name="partner-type" id="partner-type-2" value="activities"><label for="partner-type-2">Integration of Expedia Group's activities and ground transportation via APIs</label><br>
+
             <div class="button-wrapper">
                 <p id = "contact-go" class="yellow-button hidden" style="float: left"><a>Go</a></p>
             </div>
@@ -40,7 +45,7 @@ function googleTranslateElementInit() {
             <h5>I want to start working with Expedia Group</h5>
 
             <br>
-            Please contact us using the form and we'll get in touch! In the meantime, head over to our <a href="/developer">developer section</a> to see what APIs we currently offer.
+            Please contact us using the form and we'll get in touch! In the meantime, head over to our <a href="/developer">developer section</a> to see what APIs we currently offer. If you are new to the Expedia Group, use the form to contact us. Alternatively, if you currently partner with us, please contact your Connectivity Account Manager directly.
 
             <br>
             <h5>I want to  find out more about a new API</h5>
@@ -89,6 +94,8 @@ function googleTranslateElementInit() {
                 <input id="website" placeholder="Company website" type="text" required/>
                 <input id="email" placeholder="Company email" type="email" required/>
                 <input id="phone" placeholder="Phone Number (including area code)" type="tel" required/>
+                <input id="accommodations" placeholder="How many accommodations use your solution?" type="text" required/>
+                <input id="otas" placeholder="Who are the other online distributors/OTAs you work with?" type="text" required/>
                 <select id="region" name="region" placeholder="Which region is your company based in" required>
                     <option value="" selected disabled>Please select the region your company is based in</option>
                     <option value="ap">Asia-Pacific</option>
@@ -96,12 +103,11 @@ function googleTranslateElementInit() {
                     <option value="la">Latin America</option>
                     <option value="na">North America</option>
                 </select>
-                <select id="subject" name="subject"  placeholder="Please select an appropriate subject" required>
-                    <option value="" selected disabled>Please select an appropriate subject</option>
-                    <option value="interested">I'm interested in adopting Expedia Group lodging APIs</option>
-                    <option value="technical">I have a technical question about an API</option>
-                    <option value="vendor">I'm a Vendor and my details have changed</option>
-                    <option value="scorecard">I have a question about my provider scorecard</option>
+                <select id="solution" name="solution"  placeholder="What solution best describes the product you wish to connect?" required>
+                    <option value="" selected disabled>What solution best describes the product you wish to connect?</option>
+                    <option value="cm">Channel Manager</option>
+                    <option value="pms">Property Management System</option>
+                    <option value="crs">Central Reservation System</option>
                 </select>
                 <textarea id="message" placeholder="Type your message here" required></textarea>
                 <div class="g-recaptcha" data-sitekey="6LcGJqkUAAAAAGsW1rJFnIIrvXb1eYxVhxlclv1O" data-callback="captcha" data-expired-callback="captchaExpired"></div>
@@ -171,8 +177,12 @@ function googleTranslateElementInit() {
             $("#contact-form").removeClass("hidden");
         } else if (partnerType === "affiliate") {
             $("#travel-affiliate").removeClass("hidden")
+        } else if (partnerType === "airline") {
+            //do something
+        } else if (partnerType === "activities") {
+            //do something
         } else {
-            $("#hotel-contact").removeClass("hidden")
+            $("#hotel-contact").removeClass("hidden") // left this here incase we add hotel option back
         }
 
     }
@@ -194,8 +204,11 @@ function googleTranslateElementInit() {
         data.phone = $(form).find("#phone").val();
         data.company = $(form).find("#company").val();
         data.website = $(form).find("#website").val();
+        data.accommodation = $(form).find("#accommodation").val();
+        data.otas = $(form).find("#otas").val();
         data.message = $(form).find("#message").val();
-        data.subject = $(form).find("#subject").val();
+        data.solution = ${form).find("#solution").val();
+        data.subject = "Connectivity enquiry"//$(form).find("#subject").val();
         data.region = $(form).find("#region").val();
         data.captchaResponse = captchaResponse;
 
