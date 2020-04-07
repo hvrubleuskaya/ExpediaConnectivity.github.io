@@ -29,7 +29,7 @@ function googleTranslateElementInit() {
 </section> 
 
 <section class="row">
-    <div class="eleven columns text-left contactus-info">
+    <div class="eleven columns text-left contactus-info" id="mainpart">
         <div id="contact-router">
             <h5>Please select what best describes what you are looking for</h5><br/>
             <input type="radio" name="partner-type" id="partner-type-3" value="provider"><label for="partner-type-3">Adoption of Expedia Group's lodging supply APIs</label><br>
@@ -190,18 +190,22 @@ function googleTranslateElementInit() {
         if (partnerType === "provider") {
             $("#provider-contact").removeClass("hidden");
             $("#contact-form").removeClass("hidden");
+            $("#mainpart").removeClass("eleven columns");
+            $("mainpart").addClass("six columns");
         } else if (partnerType === "affiliate") {
-            $("#travel-affiliate").removeClass("hidden")
+            $("#travel-affiliate").removeClass("hidden");
+            $("#intro").addClass("hidden");
         } else if (partnerType === "airline") {
-            $("#travel-airline").removeClass("hidden")
-            $("#travel-airline").addClass("inner")
-            $("#intro").addClass("hidden")
+            $("#travel-airline").removeClass("hidden");
+            $("#travel-airline").addClass("inner");
+            $("#intro").addClass("hidden");
         } else if (partnerType === "activities") {
-            $("#travel-activities").removeClass("hidden")
-            $("#travel-activities").addClass("inner")
-            $("#intro").addClass("hidden")
+            $("#travel-activities").removeClass("hidden");
+            $("#travel-activities").addClass("inner");
+            $("#intro").addClass("hidden");
         } else {
-            $("#hotel-contact").removeClass("hidden") // left this here incase we add hotel option back
+            $("#hotel-contact").removeClass("hidden"); // left this here incase we add hotel option back
+            $("#intro").addClass("hidden");
         }
 
     }
