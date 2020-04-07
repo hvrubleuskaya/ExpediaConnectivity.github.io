@@ -193,8 +193,12 @@ function googleTranslateElementInit() {
             $("#travel-affiliate").removeClass("hidden")
         } else if (partnerType === "airline") {
             $("#travel-airline").removeClass("hidden")
+            $("#travel-airline").addClass("inner")
+            $("#intro").addClass("hidden")
         } else if (partnerType === "activities") {
             $("#travel-activities").removeClass("hidden")
+            $("#travel-activities").addClass("inner")
+            $("#intro").addClass("hidden")
         } else {
             $("#hotel-contact").removeClass("hidden") // left this here incase we add hotel option back
         }
