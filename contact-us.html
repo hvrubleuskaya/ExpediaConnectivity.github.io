@@ -26,7 +26,7 @@ function googleTranslateElementInit() {
 </section>
 <section class='inner' id='intro'>
     <p>Expedia Group is the world’s travel platform, with an extensive brand portfolio that includes some of the world’s leading online travel brands. Collectively, Expedia Group brands cover virtually every aspect of researching, planning, and booking travel, from choosing the best airplane seat, to reading personal travel reviews of hotels, to planning what to do in a destination once you arrive. The Expedia Group portfolio serves both leisure and business travellers with tastes and budgets ranging from modest to luxury.</p>
-</section> 
+</section>
 
 <section class="row">
     <div class="eleven columns text-left contactus-info" id="mainpart">
@@ -47,7 +47,7 @@ function googleTranslateElementInit() {
             <h5>I want to start working with Expedia Group</h5>
 
             <br>
-            Please contact us using the form and we'll get in touch! In the meantime, head over to our <a href="/developer">developer section</a> to see what APIs we currently offer. 
+            Please contact us using the form and we'll get in touch! In the meantime, head over to our <a href="/developer">developer section</a> to see what APIs we currently offer.
 
             <br>
             <h5>I want to  find out more about a new API</h5>
@@ -84,15 +84,15 @@ function googleTranslateElementInit() {
                 <br>
                 Please visit <a href="https://expediapartnersolutions.com/">Expedia Partner Solutions (EPS)</a> for more information.
         </div>
-        
+
         <div id="travel-airline" class="hidden">
                 Please contact <a href="mailto:transcon@expediagroup.com">transcon@expediagroup.com.</a>
         </div>
-        
+
         <div id="travel-activities" class="hidden">
-                Please contact <a href="mailto:LXAPI@expedia.com">LXAPI@expedia.com.</a> 
-        </div>        
-        
+                Please contact <a href="mailto:LXAPI@expedia.com">LXAPI@expedia.com.</a>
+        </div>
+
     </div>
     <!-- When adding new fields, Remember to also change the send email logic in hotel-assignment-service -->
     <div id="contact-form" class="six columns hidden">
@@ -112,7 +112,7 @@ function googleTranslateElementInit() {
                     <option value="la">Latin America</option>
                     <option value="na">North America</option>
                 </select>
-                <select id="solution" name="solution"  placeholder="What solution best describes the product you wish to connect?" required>
+                <select id="subject" name="subject"  placeholder="What solution best describes the product you wish to connect?" required>
                     <option value="" selected disabled>What solution best describes the product you wish to connect?</option>
                     <option value="cm">Channel Manager</option>
                     <option value="pms">Property Management System</option>
@@ -221,11 +221,10 @@ function googleTranslateElementInit() {
         data.phone = $(form).find("#phone").val();
         data.company = $(form).find("#company").val();
         data.website = $(form).find("#website").val();
-        data.accommodation = $(form).find("#accommodation").val();
+        data.accommodations = $(form).find("#accommodations").val();
         data.otas = $(form).find("#otas").val();
         data.message = $(form).find("#message").val();
-        data.solution = $(form).find("#solution").val();
-        data.subject = "Connectivity enquiry"//$(form).find("#subject").val();
+        data.subject = $(form).find("#subject").val();
         data.region = $(form).find("#region").val();
         data.captchaResponse = captchaResponse;
 
